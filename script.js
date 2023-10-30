@@ -5,6 +5,9 @@ let result = document.querySelector(".result1");
 let totalResult = document.querySelector(".result2");
 let resetBtn = document.querySelector("#reset");
 
+let viewport = document.querySelector(‘meta[name=viewport]’)
+ viewport.setAttribute(‘content’, ‘width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0’);
+
 //calculate the total tip amount
 
 function tipValue(a) {
