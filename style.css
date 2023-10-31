@@ -5,6 +5,7 @@
     --Grayish-cyan: hsl(184, 14%, 56%);
     --Light-grayish-cyan: hsl(185, 41%, 84%);
     --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --strong--cyan: hsl(172, 67%, 45%);
 }
 
 
@@ -99,9 +100,9 @@ div>span{
     text-decoration: none;
     border: none;
     border-radius: 5px;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 17px;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
 }
 
@@ -114,9 +115,14 @@ div>span{
     outline: none;
     border-radius: 5px;
     background-color: var(--Very-light-grayish-cyan);
-    font-weight: 900;
-    font-size: 17px;
+    font-weight: 700;
+    font-size: 18px;
     text-align: center;
+}
+
+.percent input:focus-within{
+    border: 2px solid var(--Light-grayish-cyan);
+    width: 94px;
 }
 
 .percent button:hover {
@@ -126,32 +132,8 @@ div>span{
 
 .percent button:focus-within {
     opacity: 1;
-    color: var(--Dark-grayish-cyan);
-    background-color: var(--Light-grayish-cyan);
-}
-
-.percent:nth-of-type(0) {
-    grid-area: first;
-}
-
-.percent:nth-of-type(1) {
-    grid-area: second;
-}
-
-.percent:nth-of-type(2) {
-    grid-area: third;
-}
-
-.percent:nth-of-type(3) {
-    grid-area: fourth;
-}
-
-.percent:nth-of-type(4) {
-    grid-area: fifth;
-}
-
-.percent:nth-of-type(5) {
-    grid-area: sixth;
+    color: var(--Very-dark-cyan);
+    background-color: var(--strong--cyan);
 }
 
 .section_bottom {
@@ -260,7 +242,11 @@ div>span{
     border-radius: 6px;
     color: var(--Very-dark-cyan);
     font-size: 20px;
-    background-color: var(--Dark-grayish-cyan);
+    background-color:var(--strong--cyan);
+}
+
+.reset_section button:hover{
+    background-color: var(--Light-grayish-cyan);
 }
 
 /* mobile devices */

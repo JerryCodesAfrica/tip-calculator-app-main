@@ -1,37 +1,45 @@
+/*===========================
+GETTING ELEMENTS FROM THE DOM
+=============================*/
 let billInput = document.querySelector("#bill");
-let billPP = document.querySelector("#bill_pp");
+let noOfPeople = document.querySelector("#bill_pp");
 let tips = document.getElementsByClassName("grid");
 let result = document.querySelector(".result1");
 let totalResult = document.querySelector(".result2");
 let resetBtn = document.querySelector("#reset");
 
-let viewport = document.querySelector(‘meta[name=viewport]’)
- viewport.setAttribute(‘content’, ‘width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0’);
-
 //calculate the total tip amount
+function tipValue(percentage) {
+    //THE TOTAL TIP TO BE PAID
+    let tip = percentage.value / 100 * billInput.value;
 
-function tipValue(a) {
-    let tipCalculator = a.value / 100 * billInput.value;
+    //THE MONEY EACH PERSON IS EXPECTED TO PAY MINUS TIP
+    let bill_PP = billInput.value / noOfPeople.value;
 
-    let tipperPerson = tipCalculator / billPP.value;
+    //THE TIP TO BE PAID PER PERSON
+    let tip_PP = tip / noOfPeople.value;
 
-    result.innerHTML = tipperPerson.toFixed(2);
+    //THE TOTAL AMOUNT TO BE PAID PER PERSON INCLUDING THE TIP
+    let totalAmount = tip_PP + bill_PP;
 
-    totalResult.innerHTML = tipCalculator.toFixed(2);
+    //APPPROXIMATE TO TWO DECIMAL PLACE
+    result.innerHTML = tip_PP.toFixed(2);
+
+    totalResult.innerHTML = totalAmount.toFixed(2);
 }
 
 //validation
 
 //Number of people
-billPP.addEventListener("input", function () {
+noOfPeople.addEventListener("input", function () {
     let error = document.querySelector(".error_msg");
 
-    if (parseInt(billPP.value) === 0) {
-        billPP.style.border = "2px solid red";
+    if (parseInt(noOfPeople.value) === 0) {
+        noOfPeople.style.border = "2px solid red";
         error.style.display = "block";
     } else {
         error.style.display = "none";
-        billPP.style.border = "2px solid var(--Light-grayish-cyan)";
+        noOfPeople.style.border = "2px solid var(--Light-grayish-cyan)";
     }
 });
 
@@ -56,6 +64,11 @@ resetBtn.addEventListener("click", function () {
     totalResult.textContent = "0.00";
     //clear input fields
     billInput.value = "";
-    billPP.value = "";
+    noOfPeople.value = "";
 })
+
+if(screen.height < 500){
+    document.getElementsByName("body").style.overflow = "scroll";
+    
+}
 
