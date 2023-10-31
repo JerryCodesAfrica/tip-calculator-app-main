@@ -68,7 +68,8 @@ resetBtn.addEventListener("click", function () {
 })
 
 if(screen.height < 500){
-    document.getElementsByName("body").style.overflow = "scroll";
-    
+    document.getElementsByName("BODY")[0].style.overflow = "scroll";
+    document.querySelector(".container").style.height = "150vh";
+
 }
 
